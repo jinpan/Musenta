@@ -11,6 +11,7 @@ sequence = []
 
 clocks_per_QN = 120
 
+prev_end_time = 0
 for line in f:
     line = line.split(',')
         
@@ -21,15 +22,15 @@ for line in f:
         
         if velocity != 0:
             #   Begin pitch
-            sequence.append((time, pitch))
+            sequence.append(pitch)
         elif velocity == 0:
             #   End pitch
-            (start_time, pitch) = sequence[len(sequence) - 1]
+            start_time = prev_end_time
             end_time = time
-            num_atom_notes = (end_time - start_time)/clocks_per_QN*(atom_note/4)
-            sequence[len(sequence) - 1] = pitch
+            num_atom_notes = (end_time - start_time)/(clocks_per_QN/(atom_note/4))
             for i in xrange(num_atom_notes - 1):
                 sequence.append(pitch)
+            prev_end_time = end_time
                 
 f.close()
 

@@ -1,3 +1,11 @@
+0, 0, Header, 1, 10, 120
+1, 0, Start_track
+1, 0, Time_signature, 2, 2, 24, 8
+1, 0, Key_signature, 1, "major"
+1, 0, Tempo, 500000
+1, 7200, End_track
+4, 0, Start_track
+4, 0, MIDI_port, 0
 4, 0, Note_on_c, 2, 67, 100
 4, 240, Note_on_c, 2, 67, 0
 4, 240, Note_on_c, 2, 66, 100
@@ -105,3 +113,4 @@
 4, 9120, Note_on_c, 2, 55, 100
 4, 9600, Note_on_c, 2, 55, 0
 4, 9600, End_track
+0, 0, End_of_file

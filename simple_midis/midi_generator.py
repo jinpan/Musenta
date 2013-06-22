@@ -33,10 +33,10 @@ current_pitch = sequence[0]
 duration = 0
 start_time = 0
 end_track_time = 0
-for pitch in sequence:
+for (index, pitch) in enumerate(sequence):
     if pitch == current_pitch:
         duration = duration + clocks_per_QN*4/atom_note
-    else:
+    if (pitch != current_pitch) or index == (len(sequence) - 1):
         line1 = [track, start_time, 'Note_on_c', channel, current_pitch, velocity]
         f.write(list_to_strln(line1))
         
